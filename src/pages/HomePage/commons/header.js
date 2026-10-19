@@ -1,6 +1,27 @@
 import { View, StyleSheet, Text } from 'react-native';
 
 function Header() {
+  const now = new Date();
+  const month = now.getMonth();
+  const day = now.getDate();
+
+  const monthNames = [
+    'Січень',
+    'Лютий',
+    'Березень',
+    'Квітень',
+    'Травень',
+    'Червень',
+    'Липень',
+    'Серпень',
+    'Вересень',
+    'Жовтень',
+    'Листопад',
+    'Грудень',
+  ];
+
+  const nameMonth = (monthNames = monthNames[month]);
+
   return (
     <View style={styles.header}>
       <Text style={styles.title}>Генеральний штаб ЗСУ України інформує</Text>
@@ -8,8 +29,11 @@ function Header() {
         Загальні бойові втрати російського окупанта
       </Text>
       <View style={styles.blockData}>
-        <Text style={styles.data}>7 червня</Text>;
-        <Text style={styles.day}>469-й день війни</Text>
+        <Text style={styles.data}>
+          {day}
+          {nameMonth}
+        </Text>
+        ;<Text style={styles.day}>469-й день війни</Text>
       </View>
     </View>
   );
